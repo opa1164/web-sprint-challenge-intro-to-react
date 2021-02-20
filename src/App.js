@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import Character from './components/Character.js';
+import styled from 'styled-components';
 const { default: axios } = require("axios");
 
 const App = () => {
@@ -22,22 +23,22 @@ const App = () => {
     });
   });
 
-  const charContainer = {
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    width: "50%",
-    padding:"20px",
-    margin: "0 auto",
-  }
+  const CharContainer = styled.div`
+    backgroundColor: "rgba(0, 0, 0, 0.5)";
+    width: "50%";
+    padding:"20px";
+    margin: "0 auto";
+  `;
 
   console.log(characters);
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
-      <div style = {charContainer}> 
+      <CharContainer> 
         {characters.map(id =>
           <Character character = {id}/>
         )}
-      </div>
+      </CharContainer>
     </div>
   );
 }
